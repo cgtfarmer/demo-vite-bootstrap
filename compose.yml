@@ -1,0 +1,15 @@
+services:
+  app:
+    image: node:22
+    user: node
+    working_dir: /home/node/app
+    extra_hosts: # For Linux
+      - host.docker.internal:host-gateway
+    tty: true
+    expose:
+      - 3000
+    command: "npm run dev"
+    ports:
+      - 5173:5173
+    volumes:
+      - ./:/home/node/app
